@@ -144,6 +144,8 @@ public class MeasureDistances : MonoBehaviour
                                                                             * to the structure of the used prefab
                                                                             */
 
+                /* TODO 1.5 Add an anchor to the line - SOLVE THIS AFTER TESTING 1.1 - 1.4 AND NOTICE THE DIFFERENCES */
+
                 /* Show on each line the distance */
                 /* Instantiate textPrefab */
                 Text partialDistance = Instantiate(textPrefab);

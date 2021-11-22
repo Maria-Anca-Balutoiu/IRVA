@@ -31,7 +31,7 @@ public class UDPSend : MonoBehaviour
     }
 
     /* Send data via UDP */
-    private void sendMessage(string message)
+    private void SendMessage(string message)
     {
         try
         {
@@ -47,7 +47,7 @@ public class UDPSend : MonoBehaviour
     public void Update()
     {
         /* TODO 3 Send the camera orientation and position to the tracking app */
-        sendMessage("ARCore:" + new Quaternion(0.0f, 0.0f, 0.0f, 1.0f).ToString() + ";" + new Vector3(0.0f, 0.0f, 0.0f).ToString());
+        SendMessage("ARCore:" + new Quaternion(0.0f, 0.0f, 0.0f, 1.0f).ToString() + ";" + new Vector3(0.0f, 0.0f, 0.0f).ToString());
     }
 }
 

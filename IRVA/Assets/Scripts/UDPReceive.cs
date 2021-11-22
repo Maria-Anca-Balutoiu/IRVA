@@ -102,7 +102,7 @@ public class UDPReceive : MonoBehaviour
         return result;
     }
 
-    /* TODO 4 Convert string to Quaternion */
+    /* TODO 4.1 Convert string to Quaternion */
     public static Quaternion StringToQuaternion(string sVector)
     {
         return new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
@@ -110,14 +110,14 @@ public class UDPReceive : MonoBehaviour
 
     public void Update()
     {
-        /* TODO 5.1 Set the camera representation position and rotation to the values received via UDP */
-        arcore.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
-        arcore.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
-
-        /* TODO 5.2 Display the values received via UDP on screen
+        /* TODO 4.2 Display the values received via UDP on screen
          * (convert the quaternion to Euler angles so that we can easily undestand the data on screen)
          */
         ARCorePosition.text = "Position: " + new Vector3(0.0f, 0.0f, 0.0f).ToString();
         ARCoreRotation.text = "Orientation: " + new Quaternion(0.0f, 0.0f, 0.0f, 1.0f).eulerAngles.ToString();
+
+        /* TODO 5 Set the camera representation position and rotation to the values received via UDP */
+        arcore.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+        arcore.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
     }
 }
