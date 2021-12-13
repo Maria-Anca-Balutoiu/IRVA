@@ -1,11 +1,11 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - UDPSend
+    - PlaceObject
+    LeanTouch.dll:
+    - Lean.Touch.LeanTouch
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
-    Unity.Timeline.Editor.dll:
-    - TimelineProjectSettings
     Unity.XR.ARCore.Editor.dll:
     - UnityEditor.XR.ARCore.ARCoreSettings
     Unity.XR.ARCore.dll:
@@ -43,7 +43,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/Phone Movement.unity:
+    Assets/Scenes/Object Interaction.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -58,9 +58,13 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 33
       Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
     - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
@@ -73,47 +77,49 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1456}
     - Class: 114
-      Script: {instanceID: 2082}
+      Script: {instanceID: 1496}
     - Class: 114
-      Script: {instanceID: 2104}
+      Script: {instanceID: 1518}
     - Class: 114
-      Script: {instanceID: 2202}
+      Script: {instanceID: 1616}
     - Class: 114
-      Script: {instanceID: 3070}
+      Script: {instanceID: 2488}
     - Class: 114
-      Script: {instanceID: 3102}
+      Script: {instanceID: 2520}
     - Class: 114
-      Script: {instanceID: 3194}
+      Script: {instanceID: 2612}
     - Class: 114
-      Script: {instanceID: 3408}
+      Script: {instanceID: 2826}
     - Class: 114
-      Script: {instanceID: 3598}
+      Script: {instanceID: 3016}
     - Class: 114
-      Script: {instanceID: 3624}
+      Script: {instanceID: 3042}
     - Class: 114
-      Script: {instanceID: 3732}
+      Script: {instanceID: 3150}
     - Class: 114
-      Script: {instanceID: 3734}
+      Script: {instanceID: 3152}
     - Class: 114
-      Script: {instanceID: 3920}
+      Script: {instanceID: 3338}
     - Class: 114
-      Script: {instanceID: 3924}
+      Script: {instanceID: 3342}
     - Class: 114
-      Script: {instanceID: 4356}
+      Script: {instanceID: 3774}
     - Class: 114
-      Script: {instanceID: 4412}
+      Script: {instanceID: 3832}
     - Class: 114
-      Script: {instanceID: 4548}
+      Script: {instanceID: 4122}
     - Class: 114
-      Script: {instanceID: 4702}
+      Script: {instanceID: 4398}
     - Class: 114
-      Script: {instanceID: 4978}
+      Script: {instanceID: 4648}
     - Class: 114
-      Script: {instanceID: 5228}
+      Script: {instanceID: 4816}
     - Class: 114
-      Script: {instanceID: 5396}
+      Script: {instanceID: 4908}
     - Class: 114
-      Script: {instanceID: 5486}
+      Script: {instanceID: 17114}
+    - Class: 114
+      Script: {instanceID: 17854}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -839,7 +845,211 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
     className: TouchInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: 81468ff345e33d683ae649a7917c5daa
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanSpawn
+  - hash:
+      serializedVersion: 2
+      Hash: 3272e67e2a332257cb7e1e279da586ab
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanSelectableSpriteRendererColor
+  - hash:
+      serializedVersion: 2
+      Hash: 1a29170ef5f457928e0271c993018af5
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanDestroy
+  - hash:
+      serializedVersion: 2
+      Hash: 1c8d233f53c3f94b163bacab5b63ecc5
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanPulseScale
+  - hash:
+      serializedVersion: 2
+      Hash: bab8f279b62dfc369d32bd47be205e63
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanSelectableByFinger
+  - hash:
+      serializedVersion: 2
+      Hash: c38931026ba351565b05da16ccfc9424
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanFingerDown
+  - hash:
+      serializedVersion: 2
+      Hash: 8f924711db241ad006500bda6bc1df87
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanFingerUp
+  - hash:
+      serializedVersion: 2
+      Hash: a505a3a789a83bae0b90e0bffed7a010
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanFormatString
+  - hash:
+      serializedVersion: 2
+      Hash: 6c1ab29ddfcd6014cccb0aadc55da469
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanPlane
+  - hash:
+      serializedVersion: 2
+      Hash: c08a332a6ca42922903f2e176f7b33c9
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanRoll
+  - hash:
+      serializedVersion: 2
+      Hash: 31466d5ab9f247d6013e2b280a930754
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanPinchScale
+  - hash:
+      serializedVersion: 2
+      Hash: 2e2654124fd0f5bbb8e7eae3a4998c77
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanFingerTap
+  - hash:
+      serializedVersion: 2
+      Hash: be0c5aa435e02217cc7d0547b5745120
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanFingerSwipe
+  - hash:
+      serializedVersion: 2
+      Hash: 87349d9f72bd122b69d2d2bdcd285bcb
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanFingerUpdate
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanTouchEvents
+  - hash:
+      serializedVersion: 2
+      Hash: c2c717ec2424543aed5e93a4257995d7
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanDragTranslate
+  - hash:
+      serializedVersion: 2
+      Hash: 3272e67e2a332257cb7e1e279da586ab
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanSelectableGraphicColor
+  - hash:
+      serializedVersion: 2
+      Hash: 3272e67e2a332257cb7e1e279da586ab
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanSelectableRendererColor
+  - hash:
+      serializedVersion: 2
+      Hash: 7a7eebed05fb8b44e037d9a7a90412ea
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanDragCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 1ea55d7abe2307363a713249b70fc2ed
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanGuide
+  - hash:
+      serializedVersion: 2
+      Hash: 8f924711db241ad006500bda6bc1df87
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanFingerOld
+  - hash:
+      serializedVersion: 2
+      Hash: 564363b71973ff9b7c6dafd1d3a1fcfb
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common.Examples
+    className: LeanLinkTo
+  - hash:
+      serializedVersion: 2
+      Hash: 1a0dd7ad4ca549693ba556455716f223
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanSelectByFinger
+  - hash:
+      serializedVersion: 2
+      Hash: 602ea77e9d1858bfe89872183453654d
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanDragTrail
+  - hash:
+      serializedVersion: 2
+      Hash: 7d70dc660eb000962adf5670a5a7101c
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanTwistRotate
+  - hash:
+      serializedVersion: 2
+      Hash: ea1df7ede5ae3bfbbe90ab33da2c7935
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanSelectable
+  - hash:
+      serializedVersion: 2
+      Hash: e637d5beedb3a6559aba9ccdfa511dd3
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common.Examples
+    className: LeanDemo
+  - hash:
+      serializedVersion: 2
+      Hash: 788ab2fa55b4fd3bd87a3bf235d17280
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanTouchSimulator
+  - hash:
+      serializedVersion: 2
+      Hash: 07c5ce3eda682eefca4a30a118555298
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanTouch
+  - hash:
+      serializedVersion: 2
+      Hash: a4ece8b44ed6831404b63e3ce95997bb
+    assemblyName: LeanTouch.dll
+    namespaceName: Lean.Touch
+    className: LeanTwistRotateAxis
+  - hash:
+      serializedVersion: 2
+      Hash: 54d2228c958bc402a9ed84ae1ae23c0d
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanSelect
+  - hash:
+      serializedVersion: 2
+      Hash: e2efc7cfa5234245c18c3065917d8945
+    assemblyName: LeanCommon.dll
+    namespaceName: Lean.Common
+    className: LeanPath
+  - hash:
+      serializedVersion: 2
+      Hash: 308daf6261266a41d1934378928e293d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DragObject
+  - hash:
+      serializedVersion: 2
+      Hash: 4fbebb500a3e8f0924e958609e6d8862
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlaceObject
   platform: 13
   scenePathNames:
-  - Assets/Scenes/Phone Movement.unity
-  playerPath: E:/Teaching/IRVA/02 ARCore. Phone Tracking/AR Foundation/test.apk
+  - Assets/Scenes/Object Interaction.unity
+  playerPath: F:/IRVA_dev/test.apk

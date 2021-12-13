@@ -5,7 +5,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637731945342582725
+      ticks: 637750066472458064
     m_Hash: 3084388695
   m_LockFileStatus:
     m_FilePath: F:/IRVA_dev/IRVA_AR/IRVA/Packages/packages-lock.json
@@ -13,7 +13,7 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637731945342582725
+      ticks: 637750066472458064
     m_Hash: 3465140861
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
@@ -72,8 +72,10 @@ m_PackageAssets:
         - 1.13.5
         - 1.14.1
         - 1.14.4
+        - 1.14.7
         - 1.15.1
         - 1.15.4
+        - 1.15.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -88,8 +90,10 @@ m_PackageAssets:
         - 1.13.5
         - 1.14.1
         - 1.14.4
+        - 1.14.7
         - 1.15.1
         - 1.15.4
+        - 1.15.7
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -3184,6 +3188,7 @@ m_PackageAssets:
         - 4.2.0
         - 4.2.1
         - 5.0.0-pre.5
+        - 5.0.0-pre.6
         compatible:
         - 4.1.7
         - 4.2.0-pre.2
@@ -3534,6 +3539,7 @@ m_PackageAssets:
         - 1.1.0-pre.9
         - 1.1.0-pre.10
         - 1.1.0-pre.11
+        - 1.1.0-pre.41
         compatible:
         - 1.0.1
         - 1.1.0-pre.7
@@ -3541,6 +3547,7 @@ m_PackageAssets:
         - 1.1.0-pre.9
         - 1.1.0-pre.10
         - 1.1.0-pre.11
+        - 1.1.0-pre.41
         verified: 1.0.1
       dependencies:
       - name: com.unity.modules.unitywebrequest

@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{D6E8783F-7B60-D26D-9861-FE50031F2F22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeanCommon", "LeanCommon.csproj", "{8A7A9637-161F-38E3-ED55-B7878F6AD2D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeanTouch", "LeanTouch.csproj", "{10C8AC4B-309E-E979-8AB6-135BD52366A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{D6E8783F-7B60-D26D-9861-FE50031F2F22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6E8783F-7B60-D26D-9861-FE50031F2F22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6E8783F-7B60-D26D-9861-FE50031F2F22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A7A9637-161F-38E3-ED55-B7878F6AD2D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A7A9637-161F-38E3-ED55-B7878F6AD2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A7A9637-161F-38E3-ED55-B7878F6AD2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A7A9637-161F-38E3-ED55-B7878F6AD2D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10C8AC4B-309E-E979-8AB6-135BD52366A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10C8AC4B-309E-E979-8AB6-135BD52366A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10C8AC4B-309E-E979-8AB6-135BD52366A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10C8AC4B-309E-E979-8AB6-135BD52366A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
