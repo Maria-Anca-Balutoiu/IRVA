@@ -56,10 +56,11 @@
     <Compile Include="Assets\Scripts\MeasureDistances.cs" />
     <Compile Include="Assets\Scripts\PlaceObject.cs" />
     <Compile Include="Assets\Scripts\UDPReceive.cs" />
+    <Compile Include="Assets\Scripts\ARCloudAnchorManager.cs" />
+    <Compile Include="Assets\Scripts\CloudAnchorObjectPlacement.cs" />
+    <Compile Include="Assets\Scripts\RuntimeImageLibrary.cs" />
     <Compile Include="Assets\Scripts\UDPSend.cs" />
     <Compile Include="Assets\Scripts\DragObject.cs" />
-    <Compile Include="Assets\Scripts\CloudAnchorObjectPlacement.cs" />
-    <Compile Include="Assets\Scripts\ARCloudAnchorManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Lean\READ ME.txt" />
@@ -627,14 +628,17 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>F:\2020.3.22f1\Editor\Data\NetStandard\compat\2.0.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.XR.ARKit">
+      <HintPath>Library\ScriptAssemblies\Unity.XR.ARKit.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.XR.Management.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.XR.Management.Editor.dll</HintPath>
@@ -648,8 +652,14 @@
     <Reference Include="Unity.XR.ARCore.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.XR.ARCore.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.XR.ARKit.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.XR.ARKit.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Subsystem.Registration">
       <HintPath>Library\ScriptAssemblies\Unity.Subsystem.Registration.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.XR.ARCoreExtensions.Editor">
+      <HintPath>Library\ScriptAssemblies\Google.XR.ARCoreExtensions.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
@@ -666,8 +676,14 @@
     <Reference Include="UnityEngine.SpatialTracking">
       <HintPath>Library\ScriptAssemblies\UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.XR.LegacyInputHelpers">
       <HintPath>Library\ScriptAssemblies\UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.XR.ARCoreExtensions">
+      <HintPath>Library\ScriptAssemblies\Google.XR.ARCoreExtensions.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
@@ -695,21 +711,6 @@
     </Reference>
     <Reference Include="Unity.XR.ARFoundation">
       <HintPath>Library\ScriptAssemblies\Unity.XR.ARFoundation.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARKit.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.XR.ARKit.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.XR.ARCoreExtensions.Editor">
-      <HintPath>Library\ScriptAssemblies\Google.XR.ARCoreExtensions.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.XR.ARKit">
-      <HintPath>Library\ScriptAssemblies\Unity.XR.ARKit.dll</HintPath>
-    </Reference>
-    <Reference Include="Google.XR.ARCoreExtensions">
-      <HintPath>Library\ScriptAssemblies\Google.XR.ARCoreExtensions.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

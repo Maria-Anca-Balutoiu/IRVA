@@ -135,7 +135,8 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 11400000, guid: 313c23cb168f31c4cba44f851c5cf0f6, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -241,7 +242,7 @@ PlayerSettings:
   useCustomLauncherGradleManifest: 0
   useCustomBaseGradleTemplate: 0
   useCustomGradlePropertiesTemplate: 0
-  useCustomProguardFile: 0
+  useCustomProguardFile: 1
   AndroidTargetArchitectures: 1
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
