@@ -77,7 +77,6 @@ public class ARCloudAnchorManager : MonoBehaviour
         Debug.Log("Resolve call in progress");
 
         /* TODO 5 Save in cloudAnchor variable the result of the resolve process */
-        cloudAnchor = arAnchorManager.ResolveCloudAnchorId(anchorIdToResolve);
 
         if (cloudAnchor == null)
         {
@@ -123,7 +122,7 @@ public class ARCloudAnchorManager : MonoBehaviour
             return;
         }
 
-        /*Check resolve result */
+        /* Check resolve result */
         if (anchorResolveInProgress && safeToResolvePassed >= 0)
         {
             if (!string.IsNullOrEmpty(anchorIdToResolve))

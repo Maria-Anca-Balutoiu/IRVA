@@ -48,16 +48,15 @@ public class PlaceObject : MonoBehaviour
     /* Only the selected object should be able to be scaled, rotated or translated */
     void SelectObject(GameObject selected)
     {
-        previousSelection = currentSelection;
-
         /* Remove translation, rotation and scaling scripts for previously selected object */
         if (currentSelection != null)
         {
-            /* TODO 2.2 Destroy DragObject, LeannPinchScale and LeanTwistRotateAxis
+            /* TODO 2.1 Destroy DragObject, LeannPinchScale and LeanTwistRotateAxis
              * components for previously selected object
              */
         }
 
+        previousSelection = currentSelection;
         currentSelection = selected;
 
         /* TODO 2.2 Add the translation, rotation and scaling scripts to the current objects */
@@ -85,8 +84,8 @@ public class PlaceObject : MonoBehaviour
             RaycastHit hitObject = new RaycastHit();
 
             /* Check if a 3D object was hit */
-            /* TODO 1.1 Check if 3D object was tapped */
-            if (true)
+            /* TODO 1.1 Check if a 3D object was tapped */
+            if (false)
             {
                 if (hitObject.transform.tag == "Manipulated")
                 {
@@ -108,7 +107,7 @@ public class PlaceObject : MonoBehaviour
                         doubleTapTime = Time.time;
                     }
 
-                    /* If double tap eventa occured, change translation time */
+                    /* If double tap event occured, change translation time */
                     if (doubleTap == true)
                     {
                         doubleTap = false;

@@ -10,6 +10,7 @@ using UnityEngine.Networking;
 public class RuntimeImageLibrary : MonoBehaviour
 {
     private ARTrackedImageManager trackImageManager;
+    public GameObject m_PlacedPrefab;
 
     void Start()
     {
@@ -29,31 +30,36 @@ public class RuntimeImageLibrary : MonoBehaviour
         yield return request.SendWebRequest();
 
         if (request.isNetworkError || request.isHttpError)
+        {
             Debug.Log(request.error);
+        }
         else
         {
             /* Downloaded image */
             imageToAdd = ((DownloadHandlerTexture)request.downloadHandler).texture;
 
-            /*TODO 3.2 Attach a new ARTrackedImageManager component */
+            /* TODO 3.2 Destroy the previous ARTrackedImageManager component. 
+             * Hint! What's the difference between Destroy() and DestroyImmediate()? */
+            DestroyImmediate(gameObject.GetComponent<ARTrackedImageManager>());
+
+            /* TODO 3.3 Attach a new ARTrackedImageManager component */
             trackImageManager = new ARTrackedImageManager();
 
-            /* TODO 3.3 Create a new runtime library */
-            var library = trackImageManager.CreateRuntimeLibrary();
+            /* TODO 3.4 Create a new runtime library */
 
-            /* TODO 3.4 Add the image to the database*/
-            
+            /* TODO 3.5 Add the image to the database*/
+
             /* Set maximum number of moving images */
             trackImageManager.maxNumberOfMovingImages = 3;
 
-            /* TODO 3.5 Set the new library as the reference library */
+            /* TODO 3.6 Set the new library as the reference library */
 
-            /* TODO 3.6 Enable the new ARTrackedImageManager component */
+            /* TODO 3.7 Enable the new ARTrackedImageManager component */
 
             /* TODO 3.7 Disable the previous ARTrackedImageManager component */
 
             /* Attach event handling */
-            trackImageManager.trackedImagesChanged += OnTrackedImagesChanged;            
+            trackImageManager.trackedImagesChanged += OnTrackedImagesChanged;
         }
     }
 
@@ -61,12 +67,18 @@ public class RuntimeImageLibrary : MonoBehaviour
     {
         foreach (ARTrackedImage trackedImage in eventArgs.added)
         {
-            /* TODO 3.8 Instantiate a new object in scene */
+            /* TODO 3.8 Instantiate a new object in scene so that it always fallows the tracked image
+             * Hint! Use SetParent() method */
         }
 
         foreach (ARTrackedImage trackedImage in eventArgs.updated)
         {
-            /* TODO 3.9 Update the object parameters */
+            /* Handle update event */
+        }
+
+        foreach (ARTrackedImage removedImage in eventArgs.removed)
+        {
+            /* Handle removed event */
         }
     }
 

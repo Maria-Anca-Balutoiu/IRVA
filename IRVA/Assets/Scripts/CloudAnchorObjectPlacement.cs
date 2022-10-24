@@ -94,7 +94,7 @@ public class CloudAnchorObjectPlacement : MonoBehaviour
 
             /* TODO 2.1. Instantiate a new prefab on scene */
 
-            /* TODO 2.2 Attach an anchor to the prefab (Hint! arAnchorManager) */
+            /* TODO 2.2 Attach an anchor to the prefab (Hint! Use AddAnchor method from arAnchorManager object) */
             ARAnchor anchor = new ARAnchor();
             spawnedObject.transform.parent = anchor.transform;
             
@@ -113,7 +113,6 @@ public class CloudAnchorObjectPlacement : MonoBehaviour
     public void RemovePlacement()
     {
         /* TODO 4 Remove cube from screen */
-
     }
 
     static List<ARRaycastHit> s_Hits = new List<ARRaycastHit>();
