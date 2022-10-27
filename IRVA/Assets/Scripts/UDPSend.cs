@@ -20,9 +20,9 @@ public class UDPSend : MonoBehaviour
 
     public void Start()
     {
-        /* TODO 1.1 Set your PC IP */
+        /* TODO 5.1 Set your PC IP */
         IP = "127.0.0.1";
-        /* TODO 1.2 Set a port to send messages to. You can use 1098 */
+        /* TODO 5.2 Set a port to send messages to. You can use 1098 */
         port = 0;
 
         /* Setup UDP connection for sending messages */
@@ -46,7 +46,7 @@ public class UDPSend : MonoBehaviour
 
     public void Update()
     {
-        /* TODO 3 Send the camera orientation and position to the tracking app */
+        /* TODO 7 Send the camera orientation and position to the tracking app */
         SendMessage("ARCore:" + new Quaternion(0.0f, 0.0f, 0.0f, 1.0f).ToString() + ";" + new Vector3(0.0f, 0.0f, 0.0f).ToString());
     }
 }

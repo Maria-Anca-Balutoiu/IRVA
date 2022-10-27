@@ -8,7 +8,12 @@ using System.Net.Sockets;
 using System.Threading;
 using UnityEngine.UI;
 
-/* TODO 2 Complete coordinate system for camera representation in scene (add OY and OZ axis to hierarchy for camera representation) */
+/* TODO 1 Add SteamVR to HTC Vive scene. */
+/* TODO 2 Add at least 3 teleporting points and 1 teleporting area. */
+/* TODO 3 Add at least one throwable cube. */
+/* TODO 4 Add a visual representation of an HTC Vive tracker. */
+/* TODO 6 Complete coordinate system for camera representation in scene (add OY and OZ axis to hierarchy for camera representation) */
+
 public class UDPReceive : MonoBehaviour
 {
     Thread receiveThread;
@@ -23,12 +28,15 @@ public class UDPReceive : MonoBehaviour
     public Text ARCorePosition;
     public Text ARCoreRotation;
 
+    public Text HTCVivePosition;
+    public Text HTCViveRotation;
+
     public GameObject arcore;
 
 
     public void Start()
     {
-        /* TODO 1.3 Set a port to listen to (same port from the phone app) */
+        /* TODO 5.3 Set a port to listen to (same port from the phone app) */
         port = 0;
 
         /* Setup UDP for receiving data */
@@ -102,7 +110,7 @@ public class UDPReceive : MonoBehaviour
         return result;
     }
 
-    /* TODO 4.1 Convert string to Quaternion */
+    /* TODO 8.1 Convert string to Quaternion */
     public static Quaternion StringToQuaternion(string sVector)
     {
         return new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
@@ -110,13 +118,19 @@ public class UDPReceive : MonoBehaviour
 
     public void Update()
     {
-        /* TODO 4.2 Display the values received via UDP on screen
+        /* TODO 8.2 Display the values received via UDP on screen
          * (convert the quaternion to Euler angles so that we can easily undestand the data on screen)
          */
-        ARCorePosition.text = "Position: " + new Vector3(0.0f, 0.0f, 0.0f).ToString();
-        ARCoreRotation.text = "Orientation: " + new Quaternion(0.0f, 0.0f, 0.0f, 1.0f).eulerAngles.ToString();
+        ARCorePosition.text = "Position AR: " + new Vector3(0.0f, 0.0f, 0.0f).ToString();
+        ARCoreRotation.text = "Orientation AR: " + new Quaternion(0.0f, 0.0f, 0.0f, 1.0f).eulerAngles.ToString();
 
-        /* TODO 5 Set the camera representation position and rotation to the values received via UDP */
+        /* TODO 8.3 Display the position of the tracker on screen	
+         * (convert the quaternion to Euler angles so that we can easily undestand the data on screen)	
+         */
+        HTCVivePosition.text = "Position VR: " + new Vector3(0.0f, 0.0f, 0.0f).ToString();
+        HTCViveRotation.text = "Orientation VR: " + new Quaternion(0.0f, 0.0f, 0.0f, 1.0f).eulerAngles.ToString();
+
+        /* TODO 9 Set the camera representation position and rotation to the values received via UDP */
         arcore.transform.rotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
         arcore.transform.position = new Vector3(0.0f, 0.0f, 0.0f);
     }

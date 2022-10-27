@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Phone Movement.unity
     guid: 1773044f829c808478cbb0117c65c5ee
   - enabled: 0
-    path: Assets/Scenes/Track Phone.unity
+    path: Assets/Scenes/HTC Vive.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
     path: Assets/Scenes/Object Interaction.unity
