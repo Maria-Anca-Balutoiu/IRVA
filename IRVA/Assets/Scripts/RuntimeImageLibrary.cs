@@ -19,7 +19,7 @@ public class RuntimeImageLibrary : MonoBehaviour
         StartCoroutine(DownloadImage(url));
     }
 
-    /* Function which doawnloads and creates and image database */
+    /* Function which downloads and creates and image database */
     IEnumerator DownloadImage(string url)
     {
         Texture2D imageToAdd;
@@ -40,7 +40,6 @@ public class RuntimeImageLibrary : MonoBehaviour
 
             /* TODO 3.2 Destroy the previous ARTrackedImageManager component. 
              * Hint! What's the difference between Destroy() and DestroyImmediate()? */
-            DestroyImmediate(gameObject.GetComponent<ARTrackedImageManager>());
 
             /* TODO 3.3 Attach a new ARTrackedImageManager component */
             trackImageManager = new ARTrackedImageManager();
@@ -55,8 +54,6 @@ public class RuntimeImageLibrary : MonoBehaviour
             /* TODO 3.6 Set the new library as the reference library */
 
             /* TODO 3.7 Enable the new ARTrackedImageManager component */
-
-            /* TODO 3.7 Disable the previous ARTrackedImageManager component */
 
             /* Attach event handling */
             trackImageManager.trackedImagesChanged += OnTrackedImagesChanged;
