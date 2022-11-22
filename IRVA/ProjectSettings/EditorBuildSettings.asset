@@ -17,9 +17,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Object Interaction.unity
     guid: b10e98b83fd17e44baf3e5f0cfd8f7b4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Augmented Images.unity
     guid: f5582ed54cae78248b09a5424fba58ca
+  - enabled: 1
+    path: Assets/Scenes/L6-AR-ManoMotion/ManoMotion.unity
+    guid: b87d7d9e4b3a3ea4e8717e2bf9f18f9f
+  - enabled: 0
+    path: Assets/ManoMotion ARFoundation/Scenes/ManoMotion SDK CE ARFoundation Features.unity
+    guid: 2e8ecbb9ea2e340009ac8d7dd6fbd854
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: d6f6922809519b74b9bcc8890eb03483, type: 2}
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 54dbe8e10e558414d9b346e73971bce0, type: 2}
