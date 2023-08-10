@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "dd62e44f",
         "name": "com.ACS3DUPB.VRAR",
-        "processId": 12525,
+        "processId": 17820,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -36,6 +36,12 @@
             "deviceId": "dd62e44f",
             "name": "com.ACS3DUPB.VRAR",
             "processId": 12525,
+            "exited": false
+        },
+        {
+            "deviceId": "dd62e44f",
+            "name": "com.ACS3DUPB.VRAR",
+            "processId": 17820,
             "exited": false
         }
     ],
