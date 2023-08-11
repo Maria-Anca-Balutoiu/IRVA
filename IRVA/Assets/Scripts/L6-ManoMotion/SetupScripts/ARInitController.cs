@@ -10,64 +10,70 @@ namespace AR_ManoMotion
 {
     public class ARInitController : MonoBehaviour
     {
-        [Tooltip("Set the device to play on (desktop or AR)")]
-        public Globals.DeviceMode deviceMode { get; private set; }
-
+        [Tooltip("Set the device to play on (desktop or AR)")] 
+        [field: NonSerialized] 
+        private Globals.DeviceMode deviceMode;
+        
         [Tooltip("Enable or disable ARFoundation's plane detection")]
-        public bool enablePlaneDetection = true;
+        [SerializeField] 
+        private bool enablePlaneDetection = true;
 
         [Tooltip("Tracking smoothing value")]
-        [Range(0f, 1f)] public float trackingSmoothing = 0.5f;
+        [SerializeField]
+        [Range(0f, 1f)]
+        private float trackingSmoothing = 0.5f;
 
         [Tooltip("AR Session")]
-        public ARSession ARSession;
+        [SerializeField]
+        private ARSession ARSession;
 
         [Tooltip("AR Session Origin")]
-        public ARSessionOrigin ARSessionOrigin;
+        [SerializeField]
+        private ARSessionOrigin ARSessionOrigin;
 
         [Tooltip("This prebaf will be instantiated in phase 2")]
-        public GameObject ARScenePrefab;
+        [SerializeField]
+        private GameObject ARScenePrefab;
 
         [Header("Phase 3 - Scene adjustments")]
         [Tooltip("Slider used to adjust the instantiated scene's rotation")]
-        public Slider sliderRotation;
+        [SerializeField]
+        private Slider sliderRotation;
 
         [Tooltip("Slider used to adjust the instantiated scene's scale")]
-        public Slider sliderScale;
+        [SerializeField]
+        private Slider sliderScale;
 
         [Tooltip("Text used to show rotation value (angles)")]
-        public TextMeshProUGUI textRotation;
+        [SerializeField]
+        private TextMeshProUGUI textRotation;
 
         [Tooltip("Text used to show scale value")]
-        public TextMeshProUGUI textScale;
+        [SerializeField]
+        private TextMeshProUGUI textScale;
 
-        private ARPlaneManager ARPlaneManager;
-        private ARRaycastManager ARRaycastManager;
-        private ARSetupPhasesController arSetupPhasesController;
-        private bool sceneInstantiated = false;
-        private GameObject ARSceneInst = null;
-        private Vector3 currentScale = Vector3.one;
-        private Quaternion currentRot = Quaternion.identity;
+        private ARPlaneManager _arPlaneManager;
+        private ARRaycastManager _arRaycastManager;
+        private ARSetupPhasesController _arSetupPhasesController;
+        private bool _sceneInstantiated = false;
+        private GameObject _arSceneInst = null;
+        private Vector3 _currentScale = Vector3.one;
+        private Quaternion _currentRot = Quaternion.identity;
 
-        private void Awake()
-        {
-            InitDeviceMode();
-        }
+        private void Awake() => InitDeviceMode();
 
         void Start()
         {
-            // Get required components
-            ARPlaneManager = ARSessionOrigin.GetComponent<ARPlaneManager>();
-            ARRaycastManager = ARSessionOrigin.GetComponent<ARRaycastManager>();
-            arSetupPhasesController = GetComponent<ARSetupPhasesController>();
+            _arPlaneManager = ARSessionOrigin.GetComponent<ARPlaneManager>();
+            _arRaycastManager = ARSessionOrigin.GetComponent<ARRaycastManager>();
+            _arSetupPhasesController = GetComponent<ARSetupPhasesController>();
 
             // Enable or disable ARFoundation's plane detection
-            ARPlaneManager.requestedDetectionMode = enablePlaneDetection ? PlaneDetectionMode.Horizontal : PlaneDetectionMode.None;
+            _arPlaneManager.requestedDetectionMode = enablePlaneDetection ? PlaneDetectionMode.Horizontal : PlaneDetectionMode.None;
 
             // Set amount of hand motion tracking smoothing
             ManomotionManager.Instance.SetManoMotionSmoothingValueFloat(trackingSmoothing);
-
-            // Setup other vars
+            
             textRotation.text = sliderRotation.value.ToString("0");
             textScale.text = sliderScale.value.ToString("0.00");
         }
@@ -75,7 +81,7 @@ namespace AR_ManoMotion
         private void Update()
         {
             // If no scene has been instantiated and we're in the appropriate phase
-            if (!sceneInstantiated && arSetupPhasesController.CurrentGamePhase == Globals.ARInitPhase.ScenePlacement)
+            if (!_sceneInstantiated && _arSetupPhasesController.CurrentGamePhase == Globals.ARInitPhase.ScenePlacement)
             {
                 InstatiateARGameObjects();
             }
@@ -92,7 +98,7 @@ namespace AR_ManoMotion
         {
             DisablePlaneDetection();
             // Advance from phase 1 to phase 2
-            arSetupPhasesController.AdvanceToPhase(Globals.ARInitPhase.ScenePlacement);
+            _arSetupPhasesController.AdvanceToPhase(Globals.ARInitPhase.ScenePlacement);
         }
 
         /** PHASE 1 - Reset button action */
@@ -107,51 +113,53 @@ namespace AR_ManoMotion
         public void ConfirmScenePlacement()
         {
             // Advance from phase 2 to phase 3
-            arSetupPhasesController.AdvanceToPhase(Globals.ARInitPhase.SceneAdjustments);
+            _arSetupPhasesController.AdvanceToPhase(Globals.ARInitPhase.SceneAdjustments);
             HideDetectedPlanes();
         }
 
         /** PHASE 2 - Reset button action */
         public void ResetScenePlacement()
         {
-            if (ARSceneInst != null)
-                Destroy(ARSceneInst);
-            sceneInstantiated = false;
+            if (_arSceneInst != null)
+            {
+                Destroy(_arSceneInst);
+            }
+            _sceneInstantiated = false;
         }
 
         /** PHASE 3 - Rotation slider change action */
         public void SliderRotationChange()
         {
-            if (ARSceneInst != null)
+            if (_arSceneInst != null)
             {
                 float sliderValue = sliderRotation.value;
                 textRotation.text = sliderValue.ToString("0");
 
-                currentRot = Quaternion.Euler(0, sliderValue * -1, 0);  // Note: * -1
-                ARSceneInst.transform.rotation = currentRot;
+                _currentRot = Quaternion.Euler(0, sliderValue * -1, 0);  // Note: * -1
+                _arSceneInst.transform.rotation = _currentRot;
 
                 ARSessionOrigin.MakeContentAppearAt(
-                    ARSceneInst.transform,
-                    ARSceneInst.transform.position,
-                    ARSceneInst.transform.rotation);
+                    _arSceneInst.transform,
+                    _arSceneInst.transform.position,
+                    _arSceneInst.transform.rotation);
             }
         }
 
         /** PHASE 3 - Scale slider change action */
         public void SliderScaleChange()
         {
-            if (ARSceneInst != null)
+            if (_arSceneInst != null)
             {
                 float sliderValue = sliderScale.value;
                 textScale.text = sliderValue.ToString("0.00");
 
-                currentScale = Vector3.one * sliderValue;
-                ARSceneInst.transform.localScale = currentScale;
+                _currentScale = Vector3.one * sliderValue;
+                _arSceneInst.transform.localScale = _currentScale;
 
                 ARSessionOrigin.MakeContentAppearAt(
-                    ARSceneInst.transform,
-                    ARSceneInst.transform.position,
-                    ARSceneInst.transform.rotation);
+                    _arSceneInst.transform,
+                    _arSceneInst.transform.position,
+                    _arSceneInst.transform.rotation);
             }
         }
 
@@ -159,26 +167,25 @@ namespace AR_ManoMotion
         public void ConfirmSceneAdjustments()
         {
             // Advance from phase 3 to phase 4
-            arSetupPhasesController.AdvanceToPhase(Globals.ARInitPhase.Done);
+            _arSetupPhasesController.AdvanceToPhase(Globals.ARInitPhase.Done);
 
-            if (ARSceneInst != null)
+            if (_arSceneInst != null)
             {
                 // Enable game controller scripts
-                ARSceneInst.GetComponent<CursorPositionController>().enabled = true;
-                ARSceneInst.GetComponent<HandGestureController>().enabled = true;
-                ARSceneInst.GetComponentInChildren<FruitSpawner>().enabled = true;
+                _arSceneInst.GetComponent<CursorPositionController>().enabled = true;
+                _arSceneInst.GetComponent<HandGestureController>().enabled = true;
+                _arSceneInst.GetComponentInChildren<FruitSpawner>().enabled = true;
             }
         }
 
-        public void DisablePlaneDetection()
-        {
-            ARPlaneManager.requestedDetectionMode = PlaneDetectionMode.None;
-        }
+        public void DisablePlaneDetection() => _arPlaneManager.requestedDetectionMode = PlaneDetectionMode.None;
 
         public void HideDetectedPlanes()
         {
-            foreach (ARPlane plane in ARPlaneManager.trackables)
+            foreach (ARPlane plane in _arPlaneManager.trackables)
+            {
                 plane.gameObject.SetActive(false);
+            }
         }
 
         private void InstatiateARGameObjects()
@@ -197,13 +204,13 @@ namespace AR_ManoMotion
 
                 // Ray from camera (based on screen coords) towards world
                 Ray ray = Camera.main.ScreenPointToRay(new Vector3(screenCoordX, screenCoordY, 0));
-                if (ARRaycastManager.Raycast(ray, hits))
+                if (_arRaycastManager.Raycast(ray, hits))
                 {
                     foreach (ARRaycastHit hit in hits)
                     {
                         // Instatiate only once
-                        ARSceneInst = Instantiate(ARScenePrefab, hit.pose.position, Quaternion.identity, GameObject.Find("SceneRoot").transform);
-                        sceneInstantiated = true;
+                        _arSceneInst = Instantiate(ARScenePrefab, hit.pose.position, Quaternion.identity, GameObject.Find("SceneRoot").transform);
+                        _sceneInstantiated = true;
                         break;
                     }
                     Handheld.Vibrate();

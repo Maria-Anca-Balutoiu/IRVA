@@ -1873,7 +1873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enablePlaneDetection: 1
-  trackingSmoothing: 1
+  trackingSmoothing: 0.75
   ARSession: {fileID: 985134747}
   ARSessionOrigin: {fileID: 1871506698}
   ARScenePrefab: {fileID: 5229076614275683180, guid: fab902dd6ecc9b54f8d36eb0b5c2142b, type: 3}

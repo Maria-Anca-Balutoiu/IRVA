@@ -25,26 +25,24 @@ namespace AR_ManoMotion
         [Range(0.1f, 5f)] public float MinSpawnRate = 0.5f;
         [Range(0.1f, 5f)] public float MaxSpawnRate = 1.25f;
 
-        private BoxCollider boxCollider;
-        private bool spawnerActive = true;
-        private float spawnMultiplier = 1f;
+        private BoxCollider _boxCollider;
+        private bool _spawnerActive = true;
+        private float _spawnMultiplier = 1f;
 
-        /** L6_TODO: Use this to control spawn rate
-        * NOTE: 
-        *      -> You need to figure out where to use it, changing it's value won't do anything as it's not used in code
-        *      -> Hint: Study the spawn coroutine */
-        public float SpawnMultiplier { get => spawnMultiplier; set => spawnMultiplier = value; }
+        // L6_TODO: Use this to control spawn rate
+        //    -> You need to figure out where to use it, changing it's value won't do anything as it's not used in code
+        //    -> Hint: Study the spawn coroutine
+        public float SpawnMultiplier { get => _spawnMultiplier; set => _spawnMultiplier = value; }
 
-        /** L6_TODO: Use this to control if fruits should spawn
-        * NOTE: 
-        *      -> You need to figure out where to use it, changing it's value won't do anything as it's not used in code
-        *      -> Hint: Study the spawn coroutine */
-        public bool SpawnerActive { get => spawnerActive; set => spawnerActive = value; }
+        // L6_TODO: Use this to control if fruits should spawn
+        //    -> You need to figure out where to use it, changing it's value won't do anything as it's not used in code
+        //    -> Hint: Study the spawn coroutine
+        public bool SpawnerActive { get => _spawnerActive; set => _spawnerActive = value; }
 
         void Start()
         {
             // Setup
-            boxCollider = GetComponent<BoxCollider>();
+            _boxCollider = GetComponent<BoxCollider>();
             Physics.gravity = new Vector3(0f, GravityValue, 0f);
 
             // Start spawning fruits
@@ -62,19 +60,19 @@ namespace AR_ManoMotion
                     float randSpawnTimer = Random.Range(MinSpawnRate, MaxSpawnRate); // TODO, spawn multiplier
                     float randSpawnForceY = Random.Range(MinLinearSpawnForceY, MaxLinearSpawnForceY);
                     float randSpawnForceDeviationX = Random.Range(MinLinearSpawnForceX, MaxLinearSpawnForceX);
-                    Vector3 randSpawnPos = GetRandomPointInBounds(boxCollider.bounds);
+                    Vector3 randSpawnPos = GetRandomPointInBounds(_boxCollider.bounds);
                     Vector3 randAngularForce = new Vector3(
                         Random.Range(MinAngularSpawnForce, MaxAngularSpawnForce),
                         Random.Range(MinAngularSpawnForce, MaxAngularSpawnForce),
                         Random.Range(MinAngularSpawnForce, MaxAngularSpawnForce));
 
-                    // Spawn fruit (note: instance will be parented to 'GameScene' object)
+                    // Spawn fruit (note: instance will be parented to 'GameScene' object, see 4th Instantiate() param)
                     GameObject newFruit = Instantiate(fruitPrefabs[randFruitIndex], randSpawnPos, Quaternion.identity, transform.parent);
                     // Apply linear and angular forces
                     newFruit.GetComponent<Rigidbody>().AddForce(new Vector3(randSpawnForceDeviationX, randSpawnForceY, 0), ForceMode.VelocityChange);
                     newFruit.GetComponent<Rigidbody>().AddRelativeTorque(randAngularForce, ForceMode.VelocityChange);
 
-                    // Sleep until next spawn
+                    // Wait until next spawn
                     yield return new WaitForSeconds(randSpawnTimer);
                 }
                 yield return null;  // Stop coroutine
